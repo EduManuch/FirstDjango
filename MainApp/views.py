@@ -37,10 +37,5 @@ def item_page(request, id):
 
 
 def items_list(request):
-    # text = "<h2>Список товаров</h2><ol>"
-    # for item in items:
-    #     text += f"<li><a href='/item/{item['id']}'>{item['name']}</a></li>"
-    # text += "</ol>"
-    # return HttpResponse(text)
     context = {'items': items}
     return render(request, 'item-list.html', context)
