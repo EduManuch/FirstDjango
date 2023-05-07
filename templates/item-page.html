@@ -7,6 +7,10 @@
 <body>
 {% include 'menu.html' %}
     <h2>{{ item.name }}</h2>
+<!--
+    Количество:
+    {{ item.count | default:'Товар нет на складе'}}
+-->
     {% if item.count == 0 %}
         Товара нет на складе
     {% else %}
@@ -14,5 +18,7 @@
         Количество: {{ item.count }}
     {% endif %}
     <br>
+<div> {{ item.description }} </div>
+    <a href="/items/">Назад</a>
 </body>
 </html>
