@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render  # , HttpResponse
 from django.http import HttpResponseNotFound
 
 author = {
@@ -34,6 +34,7 @@ def item_page(request, id):
         if item['id'] == id:
             context = {'item': item}
             return render(request, 'item-page.html', context)
+    return HttpResponseNotFound(f"Товар с id={id} не найден")
 
 
 def items_list(request):
