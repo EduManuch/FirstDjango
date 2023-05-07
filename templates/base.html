@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {% block style %}
+    {% endblock %}
 </head>
 <body>
+{% include 'header.html' %}
 {% include 'menu.html' %}
 {% block content %}
 {% endblock %}
