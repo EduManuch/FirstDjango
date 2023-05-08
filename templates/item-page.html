@@ -8,6 +8,11 @@
     Количество:
     {{ item.count | default:'Товар нет на складе'}}
     <br>
+    <ul type="square">
+        {% for color in colors %}
+        <li style="color: {{ color.name }}"> <span style="color:black">{{ color.name }}</span></li>
+        {% endfor %}
+    </ul>
     <div class="test"> {{ item.description }} </div>
     <a href="{% url 'items-list' %}">Назад</a>
 {% endblock %}

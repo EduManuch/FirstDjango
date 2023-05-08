@@ -9,13 +9,6 @@ author = {
     "phone": "89007001122",
     "email": "my_email@mail.ru",
 }
-# items = [
-#    {"id": 1, "name": "Кроссовки abibas", "quantity": 5},
-#    {"id": 2, "name": "Куртка кожаная", "quantity": 2},
-#    {"id": 5, "name": "Coca-cola 1 литр", "quantity": 12},
-#    {"id": 7, "name": "Картофель фри", "quantity": 0},
-#    {"id": 8, "name": "Кепка", "quantity": 124},
-# ]
 
 
 def home(request):
@@ -34,7 +27,9 @@ def about(request):
 def item_page(request, id):
     try:
         item = Item.objects.get(id=id)
-        context = {'item': item}
+        colors = item.colors.all()
+        context = {'item': item,
+                   'colors': colors}
         return render(request, 'item-page.html', context)
     except ObjectDoesNotExist:
         return HttpResponseNotFound(f"Товар с id={id} не найден")
